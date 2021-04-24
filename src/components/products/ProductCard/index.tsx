@@ -20,6 +20,7 @@ function ProductCard({
     return (
         <Box borderRadius="lg" border="1px solid" w="300px" m="2" p="1">
             <Image
+                data-testid="image"
                 src={contentBase64}
                 alt="image introuvable"
                 width={imageDimension}
@@ -27,12 +28,15 @@ function ProductCard({
             />
             <Box p="6">
                 <Box d="flex" alignItems="baseline">
-                    <Badge borderRadius="full" colorScheme="teal">
+                    <Badge
+                        data-testid="badge"
+                        borderRadius="full"
+                        colorScheme="teal">
                         New
                     </Badge>
                 </Box>
-                <Box>{name}</Box>
-                <Box>{description}</Box>
+                <Box data-testid="name">{name}</Box>
+                <Box data-testid="description">{description}</Box>
             </Box>
         </Box>
     );
