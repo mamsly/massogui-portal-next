@@ -1,13 +1,14 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { useQuery } from 'react-query';
 
 import { Product } from './types';
 
 export async function fetchProducts(path: string) {
     try {
-        const { data: products } = await axios.get(path);
-        // const { data }: Api<{ products: Product[] }> = response;
-        return products || undefined;
+        const {
+            data,
+        }: AxiosResponse<{ products: Product[] }> = await axios.get(path);
+        return data || undefined;
     } catch (error) {
         throw new Error(error);
     }
