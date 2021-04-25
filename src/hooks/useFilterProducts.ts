@@ -7,7 +7,7 @@ function useFilterProducts(data: any) {
     const { value } = useSearchContext();
 
     useEffect(() => {
-        if (value) {
+        if (value && data) {
             setProducts(
                 data &&
                     data.products.filter((product) =>
@@ -17,7 +17,7 @@ function useFilterProducts(data: any) {
         } else {
             setProducts(data && data.products);
         }
-    }, [data]);
+    }, [data, value]);
     return products;
 }
 
